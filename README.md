@@ -5,5 +5,6 @@ Find the next occurrence of selection or word under the cursor.
 Default keymap:
 ```cson
   '.editor':
-    'alt-n': 'next-occurrence:next'
+    'ctrl-shift-up': 'next-occurrence:prev'
+    'ctrl-shift-down': 'next-occurrence:next'
 ```

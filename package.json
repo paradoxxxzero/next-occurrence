@@ -4,7 +4,8 @@
   "version": "0.2.0",
   "description": "Find the next occurrence of selection or word under the cursor.",
   "activationEvents": [
-    "next-occurrence:next"
+    "next-occurrence:next",
+    "next-occurrence:prev"
   ],
   "repository": "https://github.com/paradoxxxzero/next-occurrence",
   "license": "MIT",
