@@ -3,7 +3,7 @@
 Find the next occurrence of selection or word under the cursor.
 
 Default keymap:
-'''cson
+```cson
   '.editor':
     'alt-n': 'next-occurrence:next'
-'''
+```
