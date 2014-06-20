@@ -1,0 +1,14 @@
+{
+  "name": "next-occurrence",
+  "main": "./lib/next-occurrence",
+  "version": "0.1.0",
+  "description": "Find the next occurrence of selection or word under the cursor.",
+  "activationEvents": ["next-occurrence:next"],
+  "repository": "https://github.com/paradoxxxzero/next-occurrence",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
