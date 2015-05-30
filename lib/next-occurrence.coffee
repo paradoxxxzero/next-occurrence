@@ -1,14 +1,21 @@
+'use strict'
+{CompositeDisposable} = require 'atom'
+
 module.exports =
-
   activate: (state) ->
-
     @matches = []
-    atom.workspaceView.command "next-occurrence:next", =>
-      @init()
-      @next()
-    atom.workspaceView.command "next-occurrence:prev", =>
-      @init()
-      @prev()
+
+    @disposables = new CompositeDisposable()
+    @disposables.add atom.commands.add 'atom-text-editor',
+      'next-occurrence:next', =>
+        @init()
+        @next()
+      'next-occurrenct:prev': =>
+        @init()
+        @prev()
+
+  deactivate: ->
+    @disposables.dispose()
 
   init: ->
     @matches = []
