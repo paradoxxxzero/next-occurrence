@@ -19,17 +19,14 @@ module.exports =
 
   init: ->
     @matches = []
-    @editor = atom.workspace.getActivePaneItem()
-    selection = @editor.getSelection().getText()
+    @editor = atom.workspace.getActiveTextEditor()
+    selection = @editor.getSelectedText()
     unless selection
-      selection = @editor.selectWord()[0].getText()
+      @editor.selectWordsContainingCursors()
+      selection = @editor.getSelectedText()
     return unless selection
     selection = selection.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
-    @matches = []
     @editor.scan new RegExp(selection, 'g'), (o) => @matches.push o
-
-  beep: ->
-    atom.workspaceView.trigger 'beep'
 
   after: (p1, p2, strict=true) ->
     (p1.row is p2.row and
@@ -42,14 +39,14 @@ module.exports =
       cursor =
         column: 0
         row: 0
-      @beep()
+      atom.beep()
     @lookup cursor, 1
 
   prev: ->
     cursor = @editor.getCursorBufferPosition()
     if @after @matches[0].range.end, cursor, false
       cursor = @editor.getEofBufferPosition()
-      @beep()
+      atom.beep()
     @lookup cursor, -1
 
   lookup: (cursor, step)->
