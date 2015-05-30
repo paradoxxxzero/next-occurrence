@@ -3,14 +3,15 @@
   "main": "./lib/next-occurrence",
   "version": "0.3.0",
   "description": "Find the next occurrence of selection or word under the cursor.",
-  "activationEvents": [
-    "next-occurrence:next",
-    "next-occurrence:prev"
-  ],
+  "activationCommands": {
+    "atom-text-editor": [
+      "next-occurrence:next",
+      "next-occurrence:prev"
+    ]
+  },
   "repository": "https://github.com/paradoxxxzero/next-occurrence",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
-  },
-  "dependencies": {}
+    "atom": ">0.200.0"
+  }
 }
