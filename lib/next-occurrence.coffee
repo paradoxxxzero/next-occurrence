@@ -7,10 +7,10 @@ module.exports =
 
     @disposables = new CompositeDisposable()
     @disposables.add atom.commands.add 'atom-text-editor',
-      'next-occurrence:next', =>
+      'next-occurrence:next': =>
         @init()
         @next()
-      'next-occurrenct:prev': =>
+      'next-occurrence:prev': =>
         @init()
         @prev()
 
