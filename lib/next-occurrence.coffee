@@ -34,8 +34,9 @@ module.exports =
       p1.row > p2.row)
 
   next: ->
+    return unless match = @matches.slice(-1)[0]?.range.start
     cursor = @editor.getCursorBufferPosition()
-    if @after cursor, @matches.slice(-1)[0].range.start, false
+    if @after cursor, match, false
       cursor =
         column: 0
         row: 0
@@ -43,8 +44,9 @@ module.exports =
     @lookup cursor, 1
 
   prev: ->
+    return unless match = @matches[0]?.range.end
     cursor = @editor.getCursorBufferPosition()
-    if @after @matches[0].range.end, cursor, false
+    if @after match, cursor, false
       cursor = @editor.getEofBufferPosition()
       atom.beep()
     @lookup cursor, -1
