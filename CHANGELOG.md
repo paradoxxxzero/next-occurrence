@@ -1,3 +1,6 @@
+## 0.5.0
+* Fix crash on empty lines
+
 ## 0.4.0
 * Remove deprecations
 
